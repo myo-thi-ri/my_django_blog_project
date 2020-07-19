@@ -1,0 +1,29 @@
+{% load static%}
+<!DOCTYPE HTML>
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <title>My Blog</title>
+        <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+    </head>
+    <body>
+    <div class="page-header">
+        <h1><a href="{% url "post_list" %}">MYO THIRI BLOG</a></h1>
+    </div>
+    <div class="content container">
+        <div class="row">
+            <div class="col-md-8">
+                {% block page %}
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    </body>
+</head>
