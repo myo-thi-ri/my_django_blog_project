@@ -1,5 +1,6 @@
 {% extends 'blog/base.html'%}
 
+{% block title %}{{ post.title }}{% endblock %}
 {% block page %}
 <div class="post">
 
@@ -9,8 +10,7 @@
     </div>
 
     {% endif %}
-
-    <a href="{%url 'post_edit' pk=post.pk %}">This is link<i class="fas fa-edit fa-2x"></i></a>
+    <a href="{%url 'post_edit' pk=post.pk %}"><i class="fas fa-edit fa-2x"></i></a>
     <h1><a href="{% url 'post_list' %}">{{ post.title }}</a></h1>
     <p>{{ post.text|linebreaksbr }}</p>
 </div>

@@ -1,3 +1,4 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Post
@@ -17,7 +18,7 @@ def post_details(request, pk):
     stuff_for_frontend = {'post': post}
     return render(request, 'blog/post_details.html', stuff_for_frontend)
 
-
+@login_required
 def post_new(request):
     if request.method == 'POST':
         form = PostForm(request.POST)

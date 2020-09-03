@@ -3,15 +3,22 @@
 <head>
     <head>
         <meta charset="UTF-8">
-        <title>My Blog</title>
+        <title>{% block title %}{% endblock %}</title>
         <link href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@600&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
         <link rel="stylesheet" href="{% static 'css/blog.css' %}">
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
 
 
     </head>
     <body>
     <div class="page-header">
+        {% if user.is_authenticated %}
+            <a href="" class="top-menu">Draft</a>
+            <a href="{% url 'post_new' %}" class="top-menu">Create new post</a>
+        {% else %}
+            <a href="{% url 'login'%}" class="top-menu">Login</a>
+        {% endif %}
         <h1><a href="{% url "post_list" %}">MYO THIRI BLOG</a></h1>
     </div>
     <div class="content container">
